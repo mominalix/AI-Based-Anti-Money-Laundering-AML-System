@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: AML Feature Engineering API
+  version: 1.0.0
+  description: Computes features for transactions including velocity, country risk, and KYC gaps
+servers:
+  - url: http://localhost:8002
+    description: Development server
+paths:
+  /features/{txnId}:
+    get:
+      summary: Get computed features for a transaction
+      parameters:
+        - name: txnId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Features computed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionFeatures'
+        '404':
+          description: Transaction not found
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [healthy]
+                  timestamp:
+                    type: string
+                    format: date-time
+components:
+  schemas:
+    TransactionFeatures:
+      type: object
+      properties:
+        txn_id:
+          type: string
+        features:
+          type: object
+          properties:
+            amt_30d:
+              type: number
+              description: 30-day rolling amount
+            velocity_score:
+              type: number
+              description: Transaction velocity score
+            country_risk:
+              type: number
+              description: Country risk score
+            kyc_gap_score:
+              type: number
+              description: KYC completeness gap score
+            pep_exposure:
+              type: number
+              description: PEP exposure score
+        computed_at:
+          type: string
+          format: date-time
+      required:
+        - txn_id
+        - features
+        - computed_at 

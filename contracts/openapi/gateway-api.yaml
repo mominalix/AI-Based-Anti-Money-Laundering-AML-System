@@ -1,0 +1,198 @@
+openapi: 3.1.0
+info:
+  title: AML Gateway API
+  version: 1.0.0
+  description: External-facing API gateway for AML system
+servers:
+  - url: http://localhost:8000
+    description: Development server
+paths:
+  /v1/batch:
+    post:
+      summary: Upload batch data (proxied to ingestion service)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                accounts:
+                  type: string
+                  format: binary
+                customers:
+                  type: string
+                  format: binary
+                transactions:
+                  type: string
+                  format: binary
+              required:
+                - accounts
+                - customers
+                - transactions
+      responses:
+        '201':
+          description: Batch uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  batch_id:
+                    type: string
+                  records_processed:
+                    type: integer
+        '400':
+          description: Invalid input data
+        '401':
+          description: Unauthorized
+  /v1/alerts:
+    get:
+      summary: Get alerts
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [open, investigating, closed, false_positive]
+        - name: risk_threshold
+          in: query
+          schema:
+            type: number
+            minimum: 0
+            maximum: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 100
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: Alerts retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  alerts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Alert'
+                  total:
+                    type: integer
+                  limit:
+                    type: integer
+                  offset:
+                    type: integer
+        '401':
+          description: Unauthorized
+  /v1/transactions/{id}:
+    get:
+      summary: Get transaction details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Transaction retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDetails'
+        '404':
+          description: Transaction not found
+        '401':
+          description: Unauthorized
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [healthy]
+                  timestamp:
+                    type: string
+                    format: date-time
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Alert:
+      type: object
+      properties:
+        alert_id:
+          type: string
+        txn_id:
+          type: string
+        customer_id:
+          type: string
+        risk_score:
+          type: number
+          minimum: 0
+          maximum: 1
+        status:
+          type: string
+          enum: [open, investigating, closed, false_positive]
+        alert_type:
+          type: string
+          enum: [high_risk_transaction, suspicious_pattern, graph_anomaly, velocity_spike]
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    TransactionDetails:
+      type: object
+      properties:
+        txn_id:
+          type: string
+        account_id:
+          type: string
+        customer_id:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        risk_score:
+          type: number
+          minimum: 0
+          maximum: 1
+        features:
+          type: object
+          additionalProperties:
+            type: number
+        alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alert' 

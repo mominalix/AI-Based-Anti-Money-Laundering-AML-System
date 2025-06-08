@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: AML Risk Scoring API
+  version: 1.0.0
+  description: ML-based risk scoring service using ONNX runtime
+servers:
+  - url: http://localhost:8003
+    description: Development server
+paths:
+  /score:
+    post:
+      summary: Score transaction risk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScoreRequest'
+      responses:
+        '200':
+          description: Risk score computed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScoreResponse'
+        '400':
+          description: Invalid input data
+  /model/metrics:
+    get:
+      summary: Get model performance metrics
+      responses:
+        '200':
+          description: Model metrics retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelMetrics'
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [healthy]
+                  timestamp:
+                    type: string
+                    format: date-time
+components:
+  schemas:
+    ScoreRequest:
+      type: object
+      properties:
+        txn_id:
+          type: string
+        features:
+          type: object
+          additionalProperties:
+            type: number
+      required:
+        - txn_id
+        - features
+    ScoreResponse:
+      type: object
+      properties:
+        txn_id:
+          type: string
+        risk_score:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Risk score between 0 and 1
+        confidence:
+          type: number
+          minimum: 0
+          maximum: 1
+        shap_values:
+          type: object
+          additionalProperties:
+            type: number
+        scored_at:
+          type: string
+          format: date-time
+      required:
+        - txn_id
+        - risk_score
+        - confidence
+        - scored_at
+    ModelMetrics:
+      type: object
+      properties:
+        model_version:
+          type: string
+        accuracy:
+          type: number
+        precision:
+          type: number
+        recall:
+          type: number
+        f1_score:
+          type: number
+        last_updated:
+          type: string
+          format: date-time 

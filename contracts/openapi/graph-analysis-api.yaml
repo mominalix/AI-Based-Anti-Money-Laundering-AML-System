@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: AML Graph Analysis API
+  version: 1.0.0
+  description: Real-time customer/counterparty graph analysis with centrality and community detection
+servers:
+  - url: http://localhost:8004
+    description: Development server
+paths:
+  /graph/risk/{partyId}:
+    get:
+      summary: Get graph-based risk analysis for a party
+      parameters:
+        - name: partyId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Graph risk analysis completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphRiskResponse'
+        '404':
+          description: Party not found in graph
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [healthy]
+                  timestamp:
+                    type: string
+                    format: date-time
+components:
+  schemas:
+    GraphRiskResponse:
+      type: object
+      properties:
+        party_id:
+          type: string
+        cluster_id:
+          type: string
+        centrality_score:
+          type: number
+          description: Betweenness centrality score
+        community_risk:
+          type: number
+          description: Community-based risk score
+        connected_parties:
+          type: array
+          items:
+            type: object
+            properties:
+              party_id:
+                type: string
+              relationship_strength:
+                type: number
+              risk_contribution:
+                type: number
+        graph_alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraphAlert'
+        analyzed_at:
+          type: string
+          format: date-time
+      required:
+        - party_id
+        - centrality_score
+        - community_risk
+        - analyzed_at
+    GraphAlert:
+      type: object
+      properties:
+        alert_type:
+          type: string
+          enum: [suspicious_cluster, high_centrality, unusual_pattern]
+        severity:
+          type: string
+          enum: [low, medium, high, critical]
+        description:
+          type: string
+        confidence:
+          type: number
+          minimum: 0
+          maximum: 1 

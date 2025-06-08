@@ -1,0 +1,178 @@
+[
+  {
+    "account_id": "ACC123",
+    "customer_id": "CUST9",
+    "country": "SA",
+    "opened_at": "2023-08-12T09:00:00Z",
+    "account_type": "current",
+    "balance": 850000.00,
+    "currency": "SAR",
+    "status": "active",
+    "risk_rating": "medium"
+  },
+  {
+    "account_id": "ACC124",
+    "customer_id": "CUST10",
+    "country": "AE",
+    "opened_at": "2023-09-15T14:30:00Z",
+    "account_type": "savings",
+    "balance": 3200000.00,
+    "currency": "AED",
+    "status": "active",
+    "risk_rating": "high"
+  },
+  {
+    "account_id": "ACC125",
+    "customer_id": "CUST11",
+    "country": "US",
+    "opened_at": "2023-10-01T08:15:00Z",
+    "account_type": "business",
+    "balance": 125000.50,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "low"
+  },
+  {
+    "account_id": "ACC126",
+    "customer_id": "CUST12",
+    "country": "KY",
+    "opened_at": "2024-01-05T11:45:00Z",
+    "account_type": "offshore",
+    "balance": 15000000.00,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "critical"
+  },
+  {
+    "account_id": "ACC127",
+    "customer_id": "CUST13",
+    "country": "CH",
+    "opened_at": "2023-12-20T16:30:00Z",
+    "account_type": "private_banking",
+    "balance": 8500000.00,
+    "currency": "CHF",
+    "status": "active",
+    "risk_rating": "high"
+  },
+  {
+    "account_id": "ACC128",
+    "customer_id": "CUST14",
+    "country": "PA",
+    "opened_at": "2024-02-14T10:00:00Z",
+    "account_type": "corporate",
+    "balance": 2750000.00,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "critical"
+  },
+  {
+    "account_id": "ACC129",
+    "customer_id": "CUST15",
+    "country": "US",
+    "opened_at": "2024-11-30T09:15:00Z",
+    "account_type": "checking",
+    "balance": 25000.00,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "high"
+  },
+  {
+    "account_id": "ACC130",
+    "customer_id": "CUST16",
+    "country": "BZ",
+    "opened_at": "2024-03-10T13:20:00Z",
+    "account_type": "trust",
+    "balance": 4200000.00,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "critical"
+  },
+  {
+    "account_id": "ACC131",
+    "customer_id": "CUST17",
+    "country": "VE",
+    "opened_at": "2024-01-15T10:30:00Z",
+    "account_type": "offshore",
+    "balance": 12000000.00,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "critical"
+  },
+  {
+    "account_id": "ACC132",
+    "customer_id": "CUST18",
+    "country": "CN",
+    "opened_at": "2024-02-20T14:15:00Z",
+    "account_type": "corporate",
+    "balance": 8500000.00,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "critical"
+  },
+  {
+    "account_id": "ACC133",
+    "customer_id": "CUST19",
+    "country": "MY",
+    "opened_at": "2024-03-05T11:00:00Z",
+    "account_type": "private_banking",
+    "balance": 25000000.00,
+    "currency": "USD",
+    "status": "frozen",
+    "risk_rating": "critical"
+  },
+  {
+    "account_id": "ACC134",
+    "customer_id": "CUST20",
+    "country": "PK",
+    "opened_at": "2024-04-10T09:45:00Z",
+    "account_type": "business",
+    "balance": 500000.00,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "high"
+  },
+  {
+    "account_id": "ACC135",
+    "customer_id": "CUST21",
+    "country": "IR",
+    "opened_at": "2024-01-20T08:30:00Z",
+    "account_type": "offshore",
+    "balance": 50000000.00,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "critical"
+  },
+  {
+    "account_id": "ACC136",
+    "customer_id": "CUST22",
+    "country": "KP",
+    "opened_at": "2024-02-15T10:00:00Z",
+    "account_type": "corporate",
+    "balance": 75000000.00,
+    "currency": "USD",
+    "status": "active",
+    "risk_rating": "critical"
+  },
+  {
+    "account_id": "ACC137",
+    "customer_id": "CUST23",
+    "country": "MY",
+    "opened_at": "2024-03-01T12:15:00Z",
+    "account_type": "private_banking",
+    "balance": 100000000.00,
+    "currency": "USD",
+    "status": "monitored",
+    "risk_rating": "critical"
+  },
+  {
+    "account_id": "ACC138",
+    "customer_id": "CUST24",
+    "country": "AF",
+    "opened_at": "2024-04-05T14:30:00Z",
+    "account_type": "business",
+    "balance": 10000000.00,
+    "currency": "USD",
+    "status": "restricted",
+    "risk_rating": "critical"
+  }
+] 

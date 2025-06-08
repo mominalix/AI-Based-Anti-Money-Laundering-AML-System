@@ -1,0 +1,308 @@
+[
+  {
+    "customer_id": "CUST9",
+    "full_name": "Ali Al-Harbi",
+    "dob": "1986-01-17",
+    "kyc_level": "standard",
+    "pep_flag": false,
+    "nationality": "SA",
+    "occupation": "Business Owner",
+    "income_source": "Trading",
+    "risk_category": "medium"
+  },
+  {
+    "customer_id": "CUST10",
+    "full_name": "Sarah Ahmed",
+    "dob": "1990-05-22",
+    "kyc_level": "enhanced",
+    "pep_flag": true,
+    "nationality": "AE",
+    "occupation": "Government Official",
+    "income_source": "Government Salary",
+    "risk_category": "high",
+    "pep_details": {
+      "position": "Deputy Minister",
+      "country": "AE",
+      "start_date": "2020-01-01"
+    }
+  },
+  {
+    "customer_id": "CUST11",
+    "full_name": "John Smith",
+    "dob": "1975-12-03",
+    "kyc_level": "basic",
+    "pep_flag": false,
+    "nationality": "US",
+    "occupation": "Software Engineer",
+    "income_source": "Employment",
+    "risk_category": "low"
+  },
+  {
+    "customer_id": "CUST12",
+    "full_name": "Viktor Petrov",
+    "dob": "1965-08-15",
+    "kyc_level": "enhanced",
+    "pep_flag": true,
+    "nationality": "RU",
+    "occupation": "Oligarch",
+    "income_source": "Investments",
+    "risk_category": "critical",
+    "pep_details": {
+      "position": "Former Energy Minister",
+      "country": "RU",
+      "start_date": "2010-01-01",
+      "end_date": "2018-12-31"
+    },
+    "sanctions_check": {
+      "status": "flagged",
+      "lists": ["OFAC", "EU"],
+      "last_checked": "2024-12-08"
+    }
+  },
+  {
+    "customer_id": "CUST13",
+    "full_name": "Hans Mueller",
+    "dob": "1958-03-22",
+    "kyc_level": "enhanced",
+    "pep_flag": false,
+    "nationality": "CH",
+    "occupation": "Private Banker",
+    "income_source": "Banking",
+    "risk_category": "high",
+    "adverse_media": {
+      "status": "flagged",
+      "summary": "Mentioned in Panama Papers investigation",
+      "last_checked": "2024-12-08"
+    }
+  },
+  {
+    "customer_id": "CUST14",
+    "full_name": "Maria Gonzalez",
+    "dob": "1972-11-08",
+    "kyc_level": "basic",
+    "pep_flag": false,
+    "nationality": "PA",
+    "occupation": "Shell Company Director",
+    "income_source": "Consulting",
+    "risk_category": "critical",
+    "corporate_structure": {
+      "beneficial_owners": "Unknown",
+      "shell_company_indicators": true,
+      "complex_ownership": true
+    }
+  },
+  {
+    "customer_id": "CUST15",
+    "full_name": "Robert Johnson",
+    "dob": "1995-07-12",
+    "kyc_level": "basic",
+    "pep_flag": false,
+    "nationality": "US",
+    "occupation": "Cryptocurrency Trader",
+    "income_source": "Trading",
+    "risk_category": "high",
+    "behavioral_flags": {
+      "new_customer": true,
+      "high_velocity": true,
+      "unusual_patterns": true
+    }
+  },
+  {
+    "customer_id": "CUST16",
+    "full_name": "Carlos Mendez",
+    "dob": "1968-04-30",
+    "kyc_level": "enhanced",
+    "pep_flag": true,
+    "nationality": "BZ",
+    "occupation": "Former Central Bank Governor",
+    "income_source": "Consulting",
+    "risk_category": "critical",
+    "pep_details": {
+      "position": "Central Bank Governor",
+      "country": "BZ",
+      "start_date": "2015-01-01",
+      "end_date": "2022-12-31"
+    },
+    "geographic_risk": {
+      "high_risk_jurisdictions": ["BZ", "PA", "KY"],
+      "tax_haven_exposure": true
+    }
+  },
+  {
+    "customer_id": "CUST17",
+    "full_name": "Nicolás Maduro Jr",
+    "dob": "1985-03-15",
+    "kyc_level": "enhanced",
+    "pep_flag": true,
+    "nationality": "VE",
+    "occupation": "Government Official",
+    "income_source": "Government Position",
+    "risk_category": "critical",
+    "pep_details": {
+      "position": "Deputy Oil Minister",
+      "country": "VE",
+      "start_date": "2019-01-01"
+    },
+    "sanctions_check": {
+      "status": "flagged",
+      "lists": ["OFAC", "EU", "UK"],
+      "last_checked": "2024-12-08"
+    }
+  },
+  {
+    "customer_id": "CUST18",
+    "full_name": "Li Wei",
+    "dob": "1970-09-12",
+    "kyc_level": "enhanced",
+    "pep_flag": true,
+    "nationality": "CN",
+    "occupation": "Party Official",
+    "income_source": "Government Position",
+    "risk_category": "critical",
+    "pep_details": {
+      "position": "Technology Committee Chairman",
+      "country": "CN",
+      "start_date": "2018-01-01"
+    },
+    "technology_exposure": {
+      "dual_use_technology": true,
+      "export_controls": true
+    }
+  },
+  {
+    "customer_id": "CUST19",
+    "full_name": "Jho Low",
+    "dob": "1981-11-04",
+    "kyc_level": "enhanced",
+    "pep_flag": false,
+    "nationality": "MY",
+    "occupation": "Financier",
+    "income_source": "Investments",
+    "risk_category": "critical",
+    "scandal_involvement": {
+      "1mdb_case": true,
+      "fugitive_status": true,
+      "international_warrants": true
+    },
+    "adverse_media": {
+      "status": "flagged",
+      "summary": "Central figure in 1MDB scandal, international fugitive",
+      "last_checked": "2024-12-08"
+    }
+  },
+  {
+    "customer_id": "CUST20",
+    "full_name": "Ahmed Khan",
+    "dob": "1975-06-20",
+    "kyc_level": "basic",
+    "pep_flag": false,
+    "nationality": "PK",
+    "occupation": "Charity Director",
+    "income_source": "Donations",
+    "risk_category": "high",
+    "charity_flags": {
+      "high_risk_regions": ["AF", "PK"],
+      "cash_intensive": true,
+      "limited_oversight": true
+    }
+  },
+  {
+    "customer_id": "CUST21",
+    "full_name": "Hassan Rouhani Jr",
+    "dob": "1980-02-14",
+    "kyc_level": "enhanced",
+    "pep_flag": true,
+    "nationality": "IR",
+    "occupation": "Oil Minister",
+    "income_source": "Government Position",
+    "risk_category": "critical",
+    "pep_details": {
+      "position": "Deputy Oil Minister",
+      "country": "IR",
+      "start_date": "2020-01-01"
+    },
+    "sanctions_check": {
+      "status": "flagged",
+      "lists": ["OFAC", "EU", "UK", "UN"],
+      "last_checked": "2024-12-08"
+    },
+    "export_controls": {
+      "dual_use_technology": true,
+      "oil_sector": true,
+      "nuclear_program": true
+    }
+  },
+  {
+    "customer_id": "CUST22",
+    "full_name": "Kim Jong-Nam",
+    "dob": "1975-05-10",
+    "kyc_level": "enhanced",
+    "pep_flag": true,
+    "nationality": "KP",
+    "occupation": "Technology Director",
+    "income_source": "Government Position",
+    "risk_category": "critical",
+    "pep_details": {
+      "position": "Nuclear Technology Director",
+      "country": "KP",
+      "start_date": "2018-01-01"
+    },
+    "sanctions_check": {
+      "status": "flagged",
+      "lists": ["OFAC", "EU", "UK", "UN", "UNSC"],
+      "last_checked": "2024-12-08"
+    },
+    "weapons_program": {
+      "nuclear_related": true,
+      "missile_technology": true,
+      "export_controls": true
+    }
+  },
+  {
+    "customer_id": "CUST23",
+    "full_name": "Najib Razak Jr",
+    "dob": "1985-07-23",
+    "kyc_level": "enhanced",
+    "pep_flag": true,
+    "nationality": "MY",
+    "occupation": "Investment Manager",
+    "income_source": "Investments",
+    "risk_category": "critical",
+    "pep_details": {
+      "position": "1MDB Board Member",
+      "country": "MY",
+      "start_date": "2019-01-01"
+    },
+    "scandal_involvement": {
+      "1mdb_case": true,
+      "money_laundering": true,
+      "corruption_charges": true
+    },
+    "adverse_media": {
+      "status": "flagged",
+      "summary": "Connected to 1MDB scandal, multiple corruption investigations",
+      "last_checked": "2024-12-08"
+    }
+  },
+  {
+    "customer_id": "CUST24",
+    "full_name": "Mullah Omar",
+    "dob": "1970-12-01",
+    "kyc_level": "basic",
+    "pep_flag": false,
+    "nationality": "AF",
+    "occupation": "Charity Director",
+    "income_source": "Donations",
+    "risk_category": "critical",
+    "terrorist_financing": {
+      "designated_terrorist": true,
+      "sanctions_lists": ["OFAC", "UN", "EU"],
+      "terrorist_organization": "Taliban"
+    },
+    "sanctions_check": {
+      "status": "flagged",
+      "lists": ["OFAC", "EU", "UK", "UN"],
+      "last_checked": "2024-12-08"
+    }
+  }
+] 

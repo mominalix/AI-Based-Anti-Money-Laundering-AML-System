@@ -1,0 +1,145 @@
+openapi: 3.1.0
+info:
+  title: AML Ingestion API
+  version: 1.0.0
+  description: Accepts batch uploads of accounts, customers, and transactions data
+servers:
+  - url: http://localhost:8001
+    description: Development server
+paths:
+  /batch:
+    post:
+      summary: Upload batch data
+      description: Accepts JSON files for accounts, customers, and transactions
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                accounts:
+                  type: string
+                  format: binary
+                customers:
+                  type: string
+                  format: binary
+                transactions:
+                  type: string
+                  format: binary
+              required:
+                - accounts
+                - customers
+                - transactions
+      responses:
+        '201':
+          description: Batch uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  batch_id:
+                    type: string
+                  records_processed:
+                    type: integer
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  details:
+                    type: array
+                    items:
+                      type: string
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [healthy]
+                  timestamp:
+                    type: string
+                    format: date-time
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        account_id:
+          type: string
+        customer_id:
+          type: string
+        country:
+          type: string
+        opened_at:
+          type: string
+          format: date-time
+        account_type:
+          type: string
+          enum: [current, savings, business]
+      required:
+        - account_id
+        - customer_id
+        - country
+        - opened_at
+        - account_type
+    Customer:
+      type: object
+      properties:
+        customer_id:
+          type: string
+        full_name:
+          type: string
+        dob:
+          type: string
+          format: date
+        kyc_level:
+          type: string
+          enum: [basic, standard, enhanced]
+        pep_flag:
+          type: boolean
+      required:
+        - customer_id
+        - full_name
+        - dob
+        - kyc_level
+        - pep_flag
+    Transaction:
+      type: object
+      properties:
+        txn_id:
+          type: string
+        account_id:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+        counterparty_country:
+          type: string
+      required:
+        - txn_id
+        - account_id
+        - timestamp
+        - amount
+        - currency
+        - counterparty_country 
