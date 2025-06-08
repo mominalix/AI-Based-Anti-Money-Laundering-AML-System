@@ -30,7 +30,7 @@ The system consists of six specialized microservices, each designed for specific
 
 ## Core Capabilities
 
-### Risk Assessment Engine
+### Risk Assessment Engine (Simulation Results)
 
 The system implements a sophisticated risk assessment framework:
 
