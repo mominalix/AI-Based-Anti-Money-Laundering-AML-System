@@ -1,6 +1,6 @@
 # Anti-Money Laundering (AML) System
 
-## Executive Summary
+## Project Introduction
 
 This project delivers a comprehensive, production-ready Anti-Money Laundering system built on modern microservices architecture. The system provides real-time transaction monitoring, AI-powered risk assessment, and automated regulatory reporting capabilities that meet enterprise-grade compliance requirements.
 
